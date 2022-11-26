@@ -1,27 +1,21 @@
 <%= form_with(model: post) do |form| %>
   <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <% post.errors.each do |error| %>
+      <div class="alert alert-danger"><%= error.full_message %></div>
+    <% end %>
   <% end %>
 
-  <div>
+  <p>
     <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+    <%= form.text_field(:title, :class => 'form-control') %>
+  </p>
 
-  <div>
+  <p>
     <%= form.label :content, style: "display: block" %>
-    <%= form.rich_text_area :content %>
-  </div>
+    <%= form.rich_text_area(:content, :class => 'form-control') %>
+  </p>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <p>
+    <%= form.submit(:class => 'btn btn-primary') %>
+  </p>
 <% end %>

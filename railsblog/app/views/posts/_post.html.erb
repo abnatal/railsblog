@@ -1,23 +1,7 @@
-<div id="<%= dom_id(post) %>">
-    <p>
-        <strong>Title:</strong>
-        <%= post.title %>
-    </p>
-
-    <p>
-        Posted <%= time_tag post.created_at, "data-local": "time-ago" %>
-    </p>
-
-    <p>
-        <strong><%= pluralize post.comments.count, "comment" %></strong>
-    </p>
-
-    <p>
-        <strong>Content:</strong>
-        <%= post.content %>
-    </p>
-
-    <!-- p>
-        <%= link_to "Show this post", post %>
-    </p -->
+<div id="<%= dom_id(post) %>"  class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= post.title %></h5>
+    <p class="card-text"><%= post.content %></p>
+    <em>Posted <%= time_tag post.created_at, "data-local": "time-ago" %>, <%= pluralize post.comments.count, "comment" %>.</em>
+  </div>
 </div>
