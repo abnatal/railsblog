@@ -1,11 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @post %>
-<div style="margin-top: 6px">
-  <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-secondary" %>
+
+<% if can_modify?(@post) %>
+  <div style="margin-top: 6px">
+    <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-secondary" %>
+    <%= link_to 'Delete', post_path(@post), data: { turbo_method: :delete,  turbo_confirm: 'Confirm post exclusion?' }, class: "btn btn-danger" %>
   </div>
-<div style="margin-top: 6px">
-  <%= button_to "Delete Post", @post, method: :delete, class: "btn btn-danger" %>
-</div>
-<hr>
+<% end %>
+
 <%= render "posts/comments", post: @post %>
