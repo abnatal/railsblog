@@ -1,3 +1,13 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import 'actiontext.css';
+
+$fa-font-path: "./webfonts";
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/brands";
+
+// @import "@fortawesome/fontawesome-free/css/all"
+
+// @import "fontawesome/scss/solid.scss";
+// @import "fontawesome/scss/brands.scss";
