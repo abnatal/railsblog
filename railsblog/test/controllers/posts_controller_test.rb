@@ -4,6 +4,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   setup do
     @post = posts(:one)
+    @post_two = posts(:two)
   end
 
   test "should get index" do
@@ -56,4 +57,30 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to posts_url
   end
+
+
+  test "should NOT edit another user post" do
+    sign_in users(:one)
+
+    get edit_post_url(@post_two)
+    assert_redirected_to root_path
+  end
+
+  test "should NOT update another user post" do
+    sign_in users(:one)
+
+    patch post_url(@post_two), params: { post: { content: @post.content, title: @post.title } }
+    assert_redirected_to root_path
+  end
+
+  test "should NOT destroy another user post" do
+    sign_in users(:one)
+
+    assert_difference("Post.count", 0) do
+      delete post_url(@post_two)
+    end
+
+    assert_redirected_to root_path
+  end
+
 end

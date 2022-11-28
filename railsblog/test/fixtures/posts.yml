@@ -8,4 +8,4 @@ one:
 two:
   title: MyString
   content: MyText
-  user: one
+  user: two
