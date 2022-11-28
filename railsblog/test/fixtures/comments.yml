@@ -7,5 +7,5 @@ one:
 
 two:
   post: two
-  content: MyText
-  user: one
+  content: HisText
+  user: two
