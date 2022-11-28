@@ -73,7 +73,7 @@ class PostsController < ApplicationController
 
   def can_modify?
     unless current_user == @post.user
-      redirect_back fallback_location: root_path, notice: 'User cannot edit or delete this post.'
+      redirect_back fallback_location: root_path, alert: 'User cannot edit or delete this post.'
     end
   end
 end

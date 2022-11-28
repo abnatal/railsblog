@@ -1,4 +1,6 @@
-<div id="<%= dom_id(comment) %>">
-    <%= comment.content %>
-    - <%= time_tag comment.created_at, "data-local": "time-ago" %> - <a href="#"><i class="fa-solid fa-trash"></i></a>
+<div id="<%= dom_id(comment) %>" style="margin-bottom: 1em">
+    <%= comment.content %><br /><em>(<%= comment.user.email.split('@')[0] %>, <%= time_tag comment.created_at, "data-local": "time-ago" %>)</em>
+    <% if can_modify?(comment) %>
+        <%= link_to post_comment_path(@post, comment), data: { turbo_method: :delete,  turbo_confirm: 'Delete comment?' } do %><i class="fa-solid fa-trash"></i><% end %>
+    <% end %>
 </div>
