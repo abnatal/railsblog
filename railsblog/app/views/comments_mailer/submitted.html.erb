@@ -1,2 +1,7 @@
 <hl>You got a new comment on <%= @comment.post.title %></hl>
-<%= render @comment %>
+<p>
+    <%= @comment.content %>
+</p>
+<p>
+    by <%= @comment.user.email %>
+</p>
