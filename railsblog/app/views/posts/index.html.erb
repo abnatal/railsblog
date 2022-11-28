@@ -1,7 +1,7 @@
 <h1>Latest Posts</h1>
 
 <div id="posts">
-  <% @posts.each do |post| %>
+  <% @posts.order('created_at DESC').each do |post| %>
     <%= render post %>
     <p>
       <%= link_to "Read More", post %>
