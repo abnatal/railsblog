@@ -2,7 +2,7 @@
 Persado Technical Assignment
 
 # Prerequisites
-- Docker installed.
+- Docker installed. Tested with version 20.10.
 
 # How to build and Run
 
@@ -38,7 +38,7 @@ The application will listen on http://localhost:3001
 - When building the Docker image, I got the error "rails assets:precompile - ArgumentError: Missing 'secret_key_base' for 'production' environment". I had to set the variable in the "production.rb" to bypass this (https://github.com/rails/rails/issues/32947)
 
 # TODO List
-- [ ] Research the best practices for deployment in production. For this project, I've used the rails server in a Docker image behind an Apache running as a reverse proxy.
+- [ ] Research the best practices for deployment in production. For this project, I've used the rails server in a Docker image behind an Apache running as a reverse proxy;
 - [ ] Implement Pagination for Posts / Comments;
-- [ ] Configure Mailer and make Devise signup "confirmable";
+- [ ] Configure Mailer and make Devise signup process "confirmable";
 - [ ] Work on the UI to make it look prettier;
