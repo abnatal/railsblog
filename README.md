@@ -16,7 +16,7 @@ cd railsblog
 
 Build and run the container:
 ```
-docker build -t railsblog.
+docker build -t railsblog .
 docker run -p 3001:3000 -e SECRET_KEY_BASE=abcdef0123456789 --name railsblog -d railsblog
 ```
 The application will listen on http://localhost:3001
@@ -30,7 +30,7 @@ The application will listen on http://localhost:3001
 # Comments
 - For the sake of simplicity, the app validates if the user can edit/delete a post or comment in the controller. There is also an application helper to show/hide the edit/delete buttons on the views. If a more sophisticated authorization check were needed, I would use a Gem like "pundit" or "cancancan".
 
-- Haven't configured Mailer in production, so there is no confirmation for user sign up at this time;
+- I haven't configured Mailer in production, so there is no confirmation for user sign up or password recovering at this time;
 
 ## Problems faced
 - After adding bootstrap support, the actiontext.css used by rich_text stopped working. I needed to link the CSS directly on "application.html.erb" (stylesheet_link_tag) to get it working (https://github.com/rails/rails/issues/43441)
@@ -40,5 +40,5 @@ The application will listen on http://localhost:3001
 # TODO List
 - [ ] Research the best practices for deployment in production. For this project, I've used the rails server in a Docker image behind an Apache running as a reverse proxy;
 - [ ] Implement Pagination for Posts / Comments;
-- [ ] Configure Mailer and make Devise signup process "confirmable";
+- [ ] Configure Mailer and make Devise signup process confirmable and recoverable;
 - [ ] Work on the UI to make it look prettier;
