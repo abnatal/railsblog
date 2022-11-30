@@ -5,8 +5,13 @@ class CommentsController < ApplicationController
 
     def create
         comment = @post.comments.create(comment_params.to_h.merge!({ user_id: current_user.id }))
-        CommentsMailer.submitted(comment).deliver_later
-        redirect_to @post
+
+        if comment.save
+            CommentsMailer.submitted(comment).deliver_later
+            redirect_to @post
+        else
+            redirect_to post_path(@post), alert: comment.errors.full_messages.to_sentence
+        end        
     end
 
     def destroy
