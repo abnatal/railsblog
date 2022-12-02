@@ -1,6 +1,3 @@
-# railsblog
-Persado Technical Assignment
-
 # Prerequisites
 - Docker installed. Tested with version 20.10.
 
